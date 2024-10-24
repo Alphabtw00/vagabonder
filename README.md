@@ -22,6 +22,10 @@ The proposed travel and socializing application, Vagabonder,  implements a secur
         - Username
         - Password (securely encrypted)
         - Full name
+        - Gender
+        - Date of Birth
+        - Residence
+        - Languages known
     - System validates unique username
     - Creates secure user profile
     - Returns authentication tokens
@@ -44,7 +48,7 @@ The proposed travel and socializing application, Vagabonder,  implements a secur
 ## 4.3 Key Security Algorithms
 
 ### 4.3.1 Password Security
-```java
+```
 @Bean
 public PasswordEncoder passwordEncoder(){
     return new BCryptPasswordEncoder();
@@ -55,7 +59,7 @@ public PasswordEncoder passwordEncoder(){
 - Salt-based protection against rainbow table attacks
 
 ### 4.3.2 Token Generation
-```java
+```
 public String generateJwtToken(UserDetails userDetails){
     return Jwts.builder()
         .subject(userDetails.getUsername())
@@ -71,7 +75,7 @@ public String generateJwtToken(UserDetails userDetails){
 ## 5.1 Core Components Implementation
 
 ### 5.1.1 Authentication Controller
-```java
+```
 @PostMapping("/register")
 public ResponseEntity<AuthenticationResponse> registerUser(@RequestBody RegisterRequest request){
     return ResponseEntity.ok(authenticationService.register(request));
@@ -130,7 +134,6 @@ public ResponseEntity<AuthenticationResponse> registerUser(@RequestBody Register
 - Secure logout mechanism
 
 ## 5.4 Future Enhancements
+- Adding Models like hotels, places to visit, etc
+- Connecting existing entities like Users with database and frontend
 - OAuth2 integration for social login
-- Two-factor authentication
-- Enhanced session analytics
-- Advanced role-based permissions
