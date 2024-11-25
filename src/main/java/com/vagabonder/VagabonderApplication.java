@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class VagabonderApplication {
+public class VagabonderApplication { //todo remove illegalArgument from everywhere
 
     public static void main(String[] args) {
         SpringApplication.run(VagabonderApplication.class, args);
